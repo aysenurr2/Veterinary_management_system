@@ -19,16 +19,15 @@ import java.util.List;
 @RequestMapping("/v1/animals")
 @RequiredArgsConstructor
 public class AnimalController {
-    private final IAnimalService animalService;
+    private IAnimalService animalService;
 
-    // Yeni bir hayvan kaydetmek için endpoint
+
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public ResultData<AnimalResponse> save(@Valid @RequestBody AnimalSaveRequest animalSaveRequest){
         return this.animalService.save(animalSaveRequest);
     }
 
-    // Cursor tabanlı sayfalama kullanarak hayvanların pagine edilmiş listesini almak için endpoint
     @GetMapping()
     @ResponseStatus(HttpStatus.OK)
     public ResultData<CursorResponse<AnimalResponse>> cursor(
@@ -37,14 +36,12 @@ public class AnimalController {
         return this.animalService.cursor(page, pageSize);
     }
 
-    // Bir hayvanı güncellemek için endpoint
     @PutMapping()
     @ResponseStatus(HttpStatus.OK)
     public ResultData<AnimalResponse> update(@Valid @RequestBody AnimalUpdateRequest animalUpdateRequest){
         return this.animalService.update(animalUpdateRequest);
     }
 
-    // Belirli bir kimliğe sahip hayvanı silmek için endpoint
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Result delete(@PathVariable int id){
@@ -52,14 +49,12 @@ public class AnimalController {
         return ResultHelper.ok();
     }
 
-    // Belirli bir isme sahip hayvanları almak için endpoint
     @GetMapping("/{name}")
     @ResponseStatus(HttpStatus.OK)
     public ResultData<List<AnimalResponse>> get(@PathVariable("name") String name){
         return this.animalService.findByName(name);
     }
 
-    // Belirli bir müşteri kimliğine sahip hayvanları almak için endpoint
     @GetMapping("/customer/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResultData<List<AnimalResponse>> getAnimalsByCustomerId(@PathVariable("id") int customerId){

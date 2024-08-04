@@ -8,8 +8,8 @@
 		<version>3.2.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.project</groupId>
-	<artifactId>SpringBootVeterinaryProject</artifactId>
+	<groupId>com.aysenur</groupId>
+	<artifactId>Veterinary_management_system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>vetProject</name>
 	<description>Demo project for Spring Boot</description>

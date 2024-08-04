@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping("/v1/customers")
 @RequiredArgsConstructor
 public class CustomerController {
-    private final ICustomerService customerService;
+    private  ICustomerService customerService;
 
     // Yeni bir müşteri kaydetmek için endpoint
     @PostMapping()

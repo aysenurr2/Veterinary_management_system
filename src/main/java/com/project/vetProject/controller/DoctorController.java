@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/v1/doctors")
 @RequiredArgsConstructor
 public class DoctorController {
-    private final IDoctorService doctorService;
+    private  IDoctorService doctorService;
 
     // Yeni bir doktor kaydetmek için endpoint
     @PostMapping()
